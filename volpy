@@ -93,6 +93,7 @@ for f in os.listdir("."):
     if any(map(lambda x: f.endswith(x), PROJECT_CONFIG["sourceFiles"])):
         cmd += f" {file}"
 
+print(cmd)
 os.system(cmd)
 
 print(f"Zipped Submission to {PROJECT_CONFIG["submissionName"]}.zip")

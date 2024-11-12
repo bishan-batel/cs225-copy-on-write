@@ -263,16 +263,20 @@ classes Element1 and Element2 declared in files element1.h and element2.h.
 And class Array (file array.cpp) uses both of them:
 
 //BAD IMPLEMENTATION
+```cpp 
 void CS225::Array::Set(int id, int pos, int value) { 
   if      (id==1) data[pos]=new Element1(value); // class name Element1 is used - then corresponding header MUST be included
   else if (id==2) data[pos]=new Element2(value); // class name Element2 is used - then corresponding header MUST be included
 }
+```
 
 therefore "array.cpp" has to include
+```cpp 
 #include "element1.h" 
 #include "element2.h" 
-Which creates the name dependency.
+```
 
+Which creates the name dependency.
 The problem with name-dependencies is that if element*.h header is modified -
 for example a name of a method is modified or a new type element is created,
 then since this name (or new type) is used by Array, someone has to update
